@@ -279,6 +279,11 @@ class Cortex(object):
         resp = await self.send_command('updateSession', **params)
         logger.debug(f"{__name__} resp:\n{resp}")
 
+    async def query_sessions(self):
+        params = {'cortexToken': self.auth_token}
+        resp = await self.send_command('querySessions', **params)
+        logger.debug(f"{__name__} resp:\n{resp}")
+
     async def subscribe(self, stream_list):
         ''' Options for streams to subscribe to include:
             eeg: EEG data
